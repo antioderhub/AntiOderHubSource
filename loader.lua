@@ -20,4 +20,4 @@ ImageLabel.Image = "rbxassetid://135589479904919"
 wait(4)
 ImageLabel:Destroy()
 setclipboard("https://t.me/aftermathscript")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/aftermath-dev/antioderhub/refs/heads/main/loader1.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aftr-lua/AntiOderHub/refs/heads/main/loader1.lua"))()
