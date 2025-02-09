@@ -3,6 +3,3 @@ if game.PlaceId == 4924922222 then
 else
   loadstring(game:HttpGet("https://raw.githubusercontent.com/aftr-lua/AntiOderHub/refs/heads/main/Universal.lua"))()
 end
-
-
-  
