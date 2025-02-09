@@ -1,3 +1,4 @@
+-- The second part of loader (notification)
 local StarterGui = game:GetService("StarterGui")
 
 StarterGui:SetCore("SendNotification", {
