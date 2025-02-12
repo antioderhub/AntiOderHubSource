@@ -16,7 +16,7 @@ ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel.BorderSizePixel = 0
 ImageLabel.Position = UDim2.new(0.3800000, 0, 0.100000000, 0)
 ImageLabel.Size = UDim2.new(0, 314, 0, 296)
-ImageLabel.Image = "rbxassetid://135589479904919"
+ImageLabel.Image = "rbxassetid://128216856751714"
 wait(4)
 ImageLabel:Destroy()
 setclipboard("https://t.me/aftermathscript")
