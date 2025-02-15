@@ -1936,7 +1936,7 @@ end
     end,
 })
 
- local Button = ImageLoader:CreateButton({
+ local Button = Img:CreateButton({
     Name = "Abort",
     Callback = function()
         getgenv().ImgLoaderStat = false
