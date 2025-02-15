@@ -1058,7 +1058,7 @@ local AutoFarm1 = AutoTab:CreateToggle({
     end,
 })
 
-local Toggle = Global:CreateToggle({
+local Toggle = AutoTab:CreateToggle({
     Name = "Make Autofarm Silent",
     CurrentValue = false,
     Flag = "Toggle1",
@@ -1067,7 +1067,7 @@ local Toggle = Global:CreateToggle({
     end,
 })
 
-local FStats = Global:CreateParagraph({Title = "Stats", Content = "Elapsed time: -".."\n".."GoldBlock Gained: -".."\n".."Gold Gained: -".."\n".."\n".."Gold per hour: -"})
+local FStats = AutoTab:CreateParagraph({Title = "Stats", Content = "Elapsed time: -".."\n".."GoldBlock Gained: -".."\n".."Gold Gained: -".."\n".."\n".."Gold per hour: -"})
 
 local clockTime = 0
 local running = false
