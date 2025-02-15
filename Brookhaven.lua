@@ -252,7 +252,7 @@ setclipboard("https://antioderhub.fun")
    end,
 })
 
-local Dropdown = Tab:CreateDropdown({
+local Dropdown = ABOUTTab:CreateDropdown({
 		Name = "Theme",
 		Options = thoptions,
 		CurrentOption = {"Default"},
