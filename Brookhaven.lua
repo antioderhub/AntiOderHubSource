@@ -245,6 +245,24 @@ setclipboard(tostring(copy))
    end,
 })
 
+local Button = ABOUTTab:CreateButton({
+   Name = "Website",
+   Callback = function()
+setclipboard("https://antioderhub.fun")
+   end,
+})
+
+local Dropdown = Tab:CreateDropdown({
+		Name = "Theme",
+		Options = thoptions,
+		CurrentOption = {"Default"},
+		MultipleOptions = false,
+		Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+		Callback = function(Options)
+			Window.ModifyTheme(Options[1])
+		end,
+})
+
 local MainTab = Window:CreateTab("Character", "person-standing")
 local MainSection = MainTab:CreateSection("Character")
 
