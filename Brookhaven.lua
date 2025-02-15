@@ -252,6 +252,11 @@ setclipboard("https://antioderhub.fun")
    end,
 })
 
+local thoptions = {}
+	for themename, theme in pairs(Rayfield.Theme) do
+		table.insert(thoptions, themename)
+end
+
 local Dropdown = ABOUTTab:CreateDropdown({
 		Name = "Theme",
 		Options = thoptions,
