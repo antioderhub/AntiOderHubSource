@@ -933,7 +933,7 @@ local AutoTab = Window:CreateTab("Autofarm", nil)
 
 
 local Silent = false
-local Label = AutoTab:CreateLabel("Thanks for @ASU", "heart", Color3.fromRGB(255, 0, 0), true)
+local Label = AutoTab:CreateLabel("Thanks for @ASU", "heart")
 
 local AutoFarm1 = AutoTab:CreateToggle({
     Name = "Auto Farm",
@@ -1603,7 +1603,7 @@ end
 
 Section = Img:CreateSection("Import Image")
 
-local ImageLoaderFile = Img:CreateLabel("Details will be displayed here", 72272740678757, Color3.fromRGB(121, 188, 226), false)
+local ImageLoaderFile = Img:CreateLabel("Details will be displayed here", 72272740678757)
 
 local URL_RESO_VALUE = 4
 local TBLOCK = 0
@@ -1720,7 +1720,7 @@ local Input = Img:CreateInput({
                     ]]
                 end
             else
-                ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110, Color3.fromRGB(255, 66, 41), false)
+                ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110)
                 Rayfield:Notify({
                     Title = "Error",
                     Content = "The API may be overloaded OR Url not supported , there's an alternative and a easy fix tutorial in the Telegram channel",
@@ -1732,7 +1732,7 @@ local Input = Img:CreateInput({
             USEURL = false
             if isfile(filePath) then
                 FileImage = fileName
-                ImageLoaderFile:Set("Method: File | Status: Success | You can enable preview", 81435876451920, Color3.fromRGB(133, 230, 138), false)
+                ImageLoaderFile:Set("Method: File | Status: Success | You can enable preview", 81435876451920)
                 Rayfield:Notify({
                     Title = "Success!",
                     Content = "file: " .. fileName .. " found!",
@@ -1741,7 +1741,7 @@ local Input = Img:CreateInput({
                 })
             else
                 FileImage = nil
-                ImageLoaderFile:Set("Method: File | Status: Error", 81435876451920, Color3.fromRGB(255, 66, 41), false)
+                ImageLoaderFile:Set("Method: File | Status: Error", 81435876451920)
                 Rayfield:Notify({
                     Title = "Error | File not found",
                     Content = "Make sure the file " .. fileName .. " exists or the URL is valid, do not put '.txt' in the TextBox",
@@ -1797,7 +1797,7 @@ local ToggleGrid = Img:CreateToggle({
     CurrentValue = false,
     Callback = function(Value)
         if Value then
-            local filePath = "BABFT/Image/" .. (FileImage or "default.txt")
+            local filePath = "AOH_BABFT/Image/" .. (FileImage or "default.txt")
             local fileContent = {}
             if USEURL == false then
                 fileContent = readFile(filePath)
