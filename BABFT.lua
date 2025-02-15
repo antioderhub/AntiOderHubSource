@@ -2141,7 +2141,7 @@ end
 local Divider = Img:CreateDivider()
 local Paragraph = Img:CreateParagraph({Title = "Important", Content = "Preview mode must be enabled to calculate the number of blocks required"})
 
-local LblBlockNeeded = Img:CreateLabel("No block found", 72272740678757, Color3.fromRGB(255, 255, 255), true)
+local LblBlockNeeded = Img:CreateLabel("No block found", 72272740678757)
 
 local NbBlockneeded = 0
   local NbBlockmissing = 0
