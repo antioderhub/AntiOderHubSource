@@ -264,7 +264,7 @@ local Dropdown = ABOUTTab:CreateDropdown({
 		MultipleOptions = false,
 		Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
 		Callback = function(Options)
-			Window.ModifyTheme(Options)
+			Window.ModifyTheme(Options[1])
 		end,
 })
 
