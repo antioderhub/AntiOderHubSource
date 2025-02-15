@@ -1631,7 +1631,7 @@ local Input = Img:CreateInput({
         ImageLoaderFile:Set("Fetching...", 72272740678757)
 
         if string.sub(Text, 1, 6) == "https:" then
-            ImageLoaderFile:Set("Method: URL | Status: Fetching...", 110690411966110, Color3.fromRGB(121, 188, 226), false)
+            ImageLoaderFile:Set("Method: URL | Status: Fetching...", 110690411966110)
 
             local url = "https://therealasu.pythonanywhere.com/process_image" -- It is useless to DDOS it, all you're going to do is DDOS pythonanywhere which are protected against that, and the server doesn't cost me anything, it's free
             local headers = {
@@ -1658,11 +1658,11 @@ local Input = Img:CreateInput({
                         local responseData = result.Body
                         return responseData
                     else
-                        ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110, Color3.fromRGB(255, 66, 41), false)
+                        ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110)
                         return nil
                     end
                 else
-                    ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110, Color3.fromRGB(255, 66, 41), false)
+                    ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110)
                     Rayfield:Notify({
                         Title = "Error ",
                         Content = "Could not Fetch data",
@@ -1681,7 +1681,7 @@ local Input = Img:CreateInput({
                 end)
                 if success and result then
                     if result.error then
-                        ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110, Color3.fromRGB(255, 66, 41), false)
+                        ImageLoaderFile:Set("Method: URL | Status: Error", 110690411966110)
                         Rayfield:Notify({
                             Title = "Error",
                             Content = "The API may be overloaded OR Url not supported , there's an alternative and a easy fix tutorial in the Discord server",
@@ -1691,7 +1691,7 @@ local Input = Img:CreateInput({
                     else
                         USEURL = true
                         TempData = response
-                        ImageLoaderFile:Set("Method: URL | Status: Fetched | You can enable preview", 110690411966110, Color3.fromRGB(133, 230, 138), false)
+                        ImageLoaderFile:Set("Method: URL | Status: Fetched | You can enable preview", nil)
                         Rayfield:Notify({
                             Title = "Success!",
                             Content = "Your URL has been converted and is ready to use",
@@ -1702,7 +1702,7 @@ local Input = Img:CreateInput({
                 else
                     TempData = response
                     USEURL = true
-                    ImageLoaderFile:Set("Method: URL | Status: Fetched | You can enable preview", 110690411966110, Color3.fromRGB(133, 230, 138), false) -- how the fk
+                    ImageLoaderFile:Set("Method: URL | Status: Fetched | You can enable preview", 110690411966110) -- how the fk
                     Rayfield:Notify({
                         Title = "Success!",
                         Content = "Your URL has been converted and is ready to use",
@@ -2168,7 +2168,7 @@ local NbBlockneeded = 0
           if NbBlockmissing < 0 then
             NbBlockmissing = 0
           end
-          LblBlockNeeded:Set("Need " .. tostring(NbBlockneeded) .. " " .. BlockType .. " and " .. tostring(NbBlockmissing) .. " blocks are missing", blocktypeID, Color3.fromRGB(255, 255, 255), true)
+          LblBlockNeeded:Set("Need " .. tostring(NbBlockneeded) .. " " .. BlockType .. " and " .. tostring(NbBlockmissing) .. " blocks are missing", blocktypeID)
       end,
   })
 
