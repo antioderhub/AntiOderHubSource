@@ -1139,7 +1139,7 @@ local ImageFiles = {}
 
 local function updateImageFiles()
 
-    local files = listfiles("BABFT/Image")
+    local files = listfiles("AOH_BABFT/Image")
 
     ImageFiles = {}
 
