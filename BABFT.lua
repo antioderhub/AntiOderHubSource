@@ -1626,9 +1626,9 @@ local Input = Img:CreateInput({
         angleY = 0
         rotationCFrame = CFrame.Angles(0, 0, 0)
         local fileName = Text .. ".txt"
-        local filePath = "BABFT/Image/" .. fileName
+        local filePath = "AOH_BABFT/Image/" .. fileName
 
-        ImageLoaderFile:Set("Fetching...", 72272740678757, Color3.fromRGB(121, 188, 226), false)
+        ImageLoaderFile:Set("Fetching...", 72272740678757)
 
         if string.sub(Text, 1, 6) == "https:" then
             ImageLoaderFile:Set("Method: URL | Status: Fetching...", 110690411966110, Color3.fromRGB(121, 188, 226), false)
