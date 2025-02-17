@@ -18,5 +18,5 @@ local Tabs = {
 
 Tabs.Main:AddParagraph({
         Title = "Info",
-        Content = "Welcome to AntiOder Hub Backdoor. You must execute !"
+        Content = "Welcome to AntiOder Hub Backdoor. You must execute backdoor checker by LALOL for using the script!"
     })
