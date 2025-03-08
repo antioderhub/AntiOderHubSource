@@ -998,6 +998,110 @@ local Toggle = EvadeTab:CreateToggle({
     end
 })
 
+local Running = false
+local Frames = {}
+local TimeStart = tick()
+
+local Player = game:GetService("Players").LocalPlayer
+local getChar = function()
+    local Character = Player.Character
+    if Character then
+        return Character
+    else
+        Player.CharacterAdded:Wait()
+        return getChar()
+    end
+end
+
+
+local StartRecord = function()
+    Frames = {}
+    Running = true
+    TimeStart = tick()
+    while Running == true do
+        game:GetService("RunService").Heartbeat:wait()
+        local Character = getChar()
+        table.insert(Frames, {
+            Character.HumanoidRootPart.CFrame,
+            Character.Humanoid:GetState().Value,
+            tick() - TimeStart
+        })
+    end
+end
+
+local StopRecord = function()
+    Running = false
+end
+
+local PlayTAS = function()
+    local Character = getChar()
+    local TimePlay = tick()
+    local FrameCount = #Frames
+    local NewFrames = FrameCount
+    local OldFrame = 1
+    local TASLoop
+    TASLoop = game:GetService("RunService").Heartbeat:Connect(function()
+        local NewFrames = OldFrame + 60
+        local CurrentTime = tick()
+        if (CurrentTime - TimePlay) >= Frames[FrameCount][3] then
+            TASLoop:Disconnect()
+        end
+        for i = OldFrame, NewFrames do
+            local Frame = Frames[i]
+            if Frame[3] <= CurrentTime - TimePlay then
+                OldFrame = i
+                Character.HumanoidRootPart.CFrame = Frame[1]
+                Character.Humanoid:ChangeState(Frame[2])
+            end
+        end
+    end)
+end
+
+
+local susysysy = EvadeTab:CreateSection("Auto Dash Mobile")
+
+local Button = EvadeTab:CreateButton({
+   Name = "Start recording",
+   Callback = StartRecord,
+})
+local Button = EvadeTab:CreateButton({
+   Name = "Stop recording",
+   Callback = StopRecord,
+})
+
+local Button = EvadeTab:CreateButton({
+   Name = "Auto Emote Dash",
+   Callback = PlayTAS,
+})
+
+
+local abdsnsjs = EvadeTab:CreateSection("Auto Dash PC")
+
+local Keybind = EvadeTab:CreateKeybind({
+   Name = "Start Recording Bind",
+   CurrentKeybind = "Q",
+   HoldToInteract = false,
+   Flag = "StartRecord",
+   Callback = StartRecord,
+})
+
+local Keybind = EvadeTab:CreateKeybind({
+   Name = "Stop Recording Bind",
+   CurrentKeybind = "E",
+   HoldToInteract = false,
+   Flag = "StopRecord",
+   Callback = StopRecord,
+})
+
+local Keybind = EvadeTab:CreateKeybind({
+   Name = "Auto Emote Dash Bind",
+   CurrentKeybind = "C",
+   HoldToInteract = false,
+   Flag = "PlayTAS",
+   Callback = PlayTAS,
+})
+
+
 
 
 
