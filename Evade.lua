@@ -119,6 +119,10 @@ end
 
 local camera = workspace.CurrentCamera
 local tweenService = game:GetService("TweenService")
+local Players = game:GetService('Players')
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local localplayer = Players.LocalPlayer
+local WorkspacePlayers = game:GetService("Workspace").Game.Players
 local copy = "https://t.me/aftermathscript"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/jensonhirst/Sirius/request/library/sense/source.lua'))()
@@ -898,7 +902,101 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
    end,
 })
 
+local EvadeTab = Window:CreateTab("Evade", nil)
 
+local Settings = {
+    moneyfarm = false,
+    afkfarm = false,
+    TicketFarm = false
+}
+
+local function AutoFarm()
+    while Settings.moneyfarm or Settings.afkfarm or Settings.TicketFarm do
+        task.wait(1)
+        
+        if Settings.TicketFarm then
+            for _, v in pairs(game:GetService("Workspace").Game.Effects.Tickets:GetChildren()) do
+                if localplayer.Character and localplayer.Character:FindFirstChild('HumanoidRootPart') then
+                    localplayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                end
+            end
+        end
+
+        if Settings.moneyfarm then
+            if localplayer.Character and localplayer.Character:GetAttribute("Downed") then
+                ReplicatedStorage.Events.Respawn:FireServer()
+                task.wait(3)
+            end
+        end
+
+        if Settings.afkfarm and localplayer.Character and localplayer.Character:FindFirstChild('HumanoidRootPart') then
+            localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(6007, 7005, 8005)
+        end
+    end
+end
+
+local speedValue = 10  
+local tpwalking = false  
+local player = game.Players.LocalPlayer
+local hb = game:GetService("RunService").Heartbeat
+
+
+local function startTeleportWalk()
+    while tpwalking do
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:WaitForChild("Humanoid", 5)
+        
+
+        humanoid.Died:Connect(function()
+            character = player.CharacterAdded:Wait()
+            humanoid = character:WaitForChild("Humanoid", 5)
+        end)
+
+        while tpwalking and character and humanoid and humanoid.Health > 0 do
+            local delta = hb:Wait()
+            if humanoid.MoveDirection.Magnitude > 0 then
+                character:TranslateBy(humanoid.MoveDirection * speedValue * delta)
+            end
+        end
+        hb:Wait() 
+    end
+end
+
+local Sjsjshsh = EvadeTab:CreateSection("Autofarm")
+
+local Toggle = EvadeTab:CreateToggle({
+    Name = "Money farm",
+    CurrentValue = false,
+    Flag = "MoneyFarmToggle",
+    Callback = function(State)
+        Settings.moneyfarm = State
+        if State then task.spawn(AutoFarm) end
+    end
+})
+
+local Toggle = EvadeTab:CreateToggle({
+    Name = "Ticket farm",
+    CurrentValue = false,
+    Flag = "TicketFarmToggle",
+    Callback = function(State)
+        Settings.TicketFarm = State
+        if State then task.spawn(AutoFarm) end
+    end
+})
+
+local osksks = EvadeTab:CreateSection("TP Walk")
+
+local Toggle = EvadeTab:CreateToggle({
+    Name = "TP Walk",
+    CurrentValue = false,
+    Flag = "Speed Set",
+    Callback = function(State)
+        tpwalking = State
+        if tpwalking then
+            startTeleportWalk()
+        end
+    end
+})
 
 
 
