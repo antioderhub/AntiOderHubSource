@@ -21,7 +21,7 @@ args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185
 local camera = workspace.CurrentCamera
 local tweenService = game:GetService("TweenService")
 local copy = "https://t.me/aftermathscript"
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/antioderhub/AntiOderHubUI/refs/heads/main/source.lua'))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/jensonhirst/Sirius/request/library/sense/source.lua'))()
 
 autoez=false
